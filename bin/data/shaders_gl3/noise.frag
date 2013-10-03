@@ -4,6 +4,7 @@ uniform sampler2D src_tex_unit0;
 uniform vec4 globalColor;
 
 in vec2 texCoordVarying;
+uniform vec2 mouse;
 
 out vec4 fragColor;
 
