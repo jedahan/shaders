@@ -45,6 +45,8 @@ void testApp::draw(){
 			
 			//we also pass in the mouse position and window size
 			shader.setUniform2f("mouse", mX, mY);
+            shader.setUniform1f("width", ofGetWidth());
+            shader.setUniform1f("height", ofGetHeight());
 	}
 
 		//finally draw our text
@@ -62,7 +64,9 @@ void testApp::draw(){
 void testApp::keyPressed  (int key){ 
 	if( key == 's' ){
 		doShader = !doShader;
-	}	
+	} else if (key == 'f'){
+        ofToggleFullscreen();
+    }
 }
 
 //--------------------------------------------------------------

@@ -5,6 +5,8 @@ uniform vec4 globalColor;
 
 in vec2 texCoordVarying;
 uniform vec2 mouse;
+uniform float width;
+uniform float height;
 
 out vec4 fragColor;
 
@@ -21,7 +23,7 @@ void main(){
 	float yVal = gl_FragCoord.y;
 
 	if( mod(xVal, 2.0) == 0.5 ){
-        if( 1.0-yVal/500 > mouse[1] ) {
+        if( 1.0-yVal/height > mouse[1] ) {
             fragColor = vec4(hsv2rgb(vec3(mouse[0],1.0,1.0)),1.0);
         } else {
             fragColor = vec4(hsv2rgb(vec3(1.0-mouse[0],1.0,1.0)),1.0);
