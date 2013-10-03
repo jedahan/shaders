@@ -23,5 +23,7 @@ class testApp : public ofBaseApp{
 		ofTrueTypeFont font;
 		ofShader shader;
 		bool doShader;
+
+        float mX, mY;
 };
 

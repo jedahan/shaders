@@ -43,10 +43,8 @@ void testApp::draw(){
 			shader.setUniform1f("timeValX", ofGetElapsedTimef() * 0.1 );
 			shader.setUniform1f("timeValY", -ofGetElapsedTimef() * 0.18 );
 			
-			//we also pass in the mouse position 
-			//we have to transform the coords to what the shader is expecting which is 0,0 in the center and y axis flipped. 
-			shader.setUniform2f("mouse", mouseX - ofGetWidth()/2, ofGetHeight()/2-mouseY );
-
+			//we also pass in the mouse position and window size
+			shader.setUniform2f("mouse", mX, mY);
 	}
 	
 		//finally draw our text
@@ -71,7 +69,14 @@ void testApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ){
-	
+    // Only update the mouse coordinates if inside the window
+    if(x>0 && x<ofGetWidth()) {
+        if(y>0 && y<ofGetHeight()){
+            // Map the mouse coordinates to 0.0-1.0 for our shader
+            mX = x/(float)ofGetWidth();
+            mY = y/(float)ofGetHeight();
+        }
+    }
 }
 
 //--------------------------------------------------------------
