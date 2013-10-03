@@ -33,6 +33,7 @@ void testApp::draw(){
 
 	ofSetColor(225);
 	ofDrawBitmapString("'s' toggles shader", 10, 20);
+	ofDrawBitmapString("'f' toggles fullscreen", 10, 30);
 
 	ofSetColor(245, 58, 135);
 	ofFill();
