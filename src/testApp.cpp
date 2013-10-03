@@ -46,9 +46,13 @@ void testApp::draw(){
 			//we also pass in the mouse position and window size
 			shader.setUniform2f("mouse", mX, mY);
 	}
-	
+
 		//finally draw our text
-		font.drawStringAsShapes("openFrameworks", 90, 260);
+        ofPushMatrix();
+        ofRotateZ(ofGetElapsedTimef()*10);
+		font.drawStringAsShapes("school for poetic", 90, 260);
+		font.drawStringAsShapes("computation", 130, 360);
+        ofPopMatrix();
 	
 	if( doShader ){
 		shader.end();
