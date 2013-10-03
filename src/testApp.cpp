@@ -23,7 +23,9 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-
+    if(ofGetFrameNum() % (int)ofGetFrameRate()/2==0){
+        shader.load("shaders_gl3/noise.vert", "shaders_gl3/noise.frag");
+    }
 }
 
 //--------------------------------------------------------------
