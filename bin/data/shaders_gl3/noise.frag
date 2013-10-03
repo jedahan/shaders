@@ -17,18 +17,16 @@ vec3 hsv2rgb(vec3 c)
 
 
 void main(){
-	//this is the fragment shader
-	//this is where the pixel level drawing happens
-	//gl_FragCoord gives us the x and y of the current pixel its drawing
-	
-	//we grab the x and y and store them in an int
 	float xVal = gl_FragCoord.x;
 	float yVal = gl_FragCoord.y;
-    
-	//we use the mod function to only draw pixels if they are every 2 in x or every 4 in y
-	if( mod(xVal, 2.0) == 0.5 && mod(yVal, 4.0) == 0.5 ){
-		fragColor = globalColor;    
-    }else{
-		discard;
+
+	if( mod(xVal, 2.0) == 0.5 ){
+        if( 1.0-yVal/500 > mouse[1] ) {
+            fragColor = vec4(hsv2rgb(vec3(mouse[0],1.0,1.0)),1.0);
+        } else {
+            fragColor = vec4(hsv2rgb(vec3(1.0-mouse[0],1.0,1.0)),1.0);
+        }
+    } else {
+        discard;
 	}
 }
