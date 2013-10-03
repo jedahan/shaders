@@ -7,9 +7,7 @@
 int main( ){
 
 	ofSetLogLevel(OF_LOG_VERBOSE);
-	#ifdef TARGET_OPENGLES
     ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
-	#endif
 	ofSetupOpenGL(1024,500, OF_WINDOW);			// <-------- setup the GL context
 
 	// this kicks off the running of my app
