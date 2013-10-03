@@ -49,7 +49,6 @@ void testApp::draw(){
 
 		//finally draw our text
         ofPushMatrix();
-        ofRotateZ(ofGetElapsedTimef()*10);
 		font.drawStringAsShapes("school for poetic", 90, 260);
 		font.drawStringAsShapes("computation", 130, 360);
         ofPopMatrix();
