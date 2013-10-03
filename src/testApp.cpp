@@ -50,10 +50,10 @@ void testApp::draw(){
             shader.setUniform1f("height", ofGetHeight());
 	}
 
-		//finally draw our text
+        //finally draw our text
         ofPushMatrix();
-		font.drawStringAsShapes("school for poetic", 90, 260);
-		font.drawStringAsShapes("computation", 130, 360);
+        font.drawStringAsShapes("school for poetic", ofGetWidth()/2 - font.stringWidth("school for poetic")/2, 260);
+        font.drawStringAsShapes("computation", ofGetWidth()/2 - font.stringWidth("computation")/2, 360);
         ofPopMatrix();
 	
 	if( doShader ){
