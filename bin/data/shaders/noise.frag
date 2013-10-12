@@ -7,6 +7,10 @@ in vec2 texCoordVarying;
 uniform vec2 mouse;
 uniform float width;
 uniform float height;
+uniform float time;
+uniform float amplitude;
+uniform float period;
+uniform float speed;
 
 out vec4 fragColor;
 
@@ -21,12 +25,15 @@ vec3 hsv2rgb(vec3 c)
 void main(){
 	float xVal = gl_FragCoord.x;
 	float yVal = gl_FragCoord.y;
+    float p = period * xVal / width;
 
-	if( mod(xVal, 2.0) == 0.5 ){
-        if( 1.0-yVal/height > mouse[1] ) {
-            fragColor = vec4(hsv2rgb(vec3(mouse[0],1.0,1.0)),1.0);
+	if( mod(xVal, 4.0) == 0.5 ){
+        p += cos(time*speed);
+//        p *= mouse[0] * 256;
+        if( 1.0-yVal/height > mouse[1]+amplitude*sin(p)/height) {
+            fragColor = globalColor + vec4(hsv2rgb(vec3(mouse[0],1.0,1.0)),1.0);
         } else {
-            fragColor = vec4(hsv2rgb(vec3(1.0-mouse[0],1.0,1.0)),1.0);
+            fragColor =  globalColor + vec4(hsv2rgb(vec3(mod(mouse[0]+0.5,1.0),1.0,1.0)),1.0);
         }
     } else {
         discard;

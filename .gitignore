@@ -1,6 +1,6 @@
 # Some general ignore patterns
 bin/
-!bin/data/shaders_gl3/noise.frag
+!bin/data
 .DS_Store
 build/
 obj/
