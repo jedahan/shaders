@@ -90,7 +90,6 @@ void testApp::keyPressed  (int key){
     } else if (key == 'n'){
         speed/=2;
     }
-
 }
 
 void testApp::mouseMoved(int x, int y ){
